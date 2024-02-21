@@ -28,6 +28,7 @@ const addOptionsToColorPicker = () => {
 
 const addEventListenerToColorPicker = () => {
   const colorPickerSelect =document.querySelector("#color-picker");
+  const colorName = document.querySelector('#color-name');
 
   colorPickerSelect.addEventListener("change", (event) => {
     const newColor = event.target.value;
@@ -35,15 +36,12 @@ const addEventListenerToColorPicker = () => {
 
     document.body.style.backgroundColor = newColor;
     //aplicamos el bk color con el color seleccionado
-
+    const colornameText = `${color_palette[newColor]} | ${newColor}` 
+    //creo una constante de nombre + HEx
+    colorName.innerText = color_palette[newColor] ? colornameText : '-' ;
+    //Ternario:  si hay color ? me quedo : sino me quedo -
   });
 };
 
 addOptionsToColorPicker();
 addEventListenerToColorPicker();
-
-
-const colorNameText = `${color_palette[newColor]} | ${newColor}` 
-    colorName.innerText = color_palette[newColor] ? colorNameText : "-";
-
-add
